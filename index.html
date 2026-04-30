@@ -189,7 +189,7 @@
   .community-cards .card-slot .card-front .corner .rank { font-size: 13px; }
   .community-cards .card-slot .card-front .corner .suit-mini { font-size: 11px; }
   .community-cards .card-slot .card-front .pip { font-size: 11px; }
-  .community-cards .card-slot .card-front .center-pips { inset: 16% 22%; }
+  .community-cards .card-slot .card-front .center-pips { inset: 22% 24%; }
   .community-cards .card-slot .card-front .center-ace { font-size: 42px; }
   .community-cards .card-slot .card-front .center-face { font-size: 30px; }
 
@@ -301,7 +301,7 @@
   /* === Center: pip pattern (numbers 2–10) === */
   .center-pips {
     position: absolute;
-    inset: 14% 22%;
+    inset: 22% 24%;
     pointer-events: none;
   }
   .center-pips .pip {
@@ -391,7 +391,7 @@
   .hole-cards .card-front .corner .rank { font-size: 11px; }
   .hole-cards .card-front .corner .suit-mini { font-size: 9px; }
   .hole-cards .card-front .pip { font-size: 8px; }
-  .hole-cards .card-front .center-pips { inset: 18% 24%; }
+  .hole-cards .card-front .center-pips { inset: 24% 28%; }
   .hole-cards .card-front .center-ace { font-size: 30px; }
   .hole-cards .card-front .center-face { font-size: 22px; }
 
@@ -895,7 +895,7 @@ function renderCommunityCards() {
     slot.className = "card-slot";
     slot.innerHTML = `
       <div class="card">
-        <div class="card-face card-back"><div class="card-back-emblem">F</div></div>
+        <div class="card-face card-back"></div>
         <div class="card-face card-front"></div>
       </div>
     `;
@@ -908,13 +908,13 @@ function renderCommunityCards() {
 const PIP_LAYOUTS = {
   "2":  [[10,50],[90,50]],
   "3":  [[10,50],[50,50],[90,50]],
-  "4":  [[10,25],[10,75],[90,25],[90,75]],
-  "5":  [[10,25],[10,75],[50,50],[90,25],[90,75]],
-  "6":  [[10,25],[10,75],[50,25],[50,75],[90,25],[90,75]],
-  "7":  [[10,25],[10,75],[28,50],[50,25],[50,75],[90,25],[90,75]],
-  "8":  [[10,25],[10,75],[28,50],[50,25],[50,75],[72,50],[90,25],[90,75]],
-  "9":  [[10,25],[10,75],[37,25],[37,75],[50,50],[63,25],[63,75],[90,25],[90,75]],
-  "10": [[10,25],[10,75],[26,50],[37,25],[37,75],[63,25],[63,75],[74,50],[90,25],[90,75]],
+  "4":  [[10,30],[10,70],[90,30],[90,70]],
+  "5":  [[10,30],[10,70],[50,50],[90,30],[90,70]],
+  "6":  [[10,30],[10,70],[50,30],[50,70],[90,30],[90,70]],
+  "7":  [[10,30],[10,70],[30,50],[50,30],[50,70],[90,30],[90,70]],
+  "8":  [[10,30],[10,70],[30,50],[50,30],[50,70],[70,50],[90,30],[90,70]],
+  "9":  [[10,30],[10,70],[35,30],[35,70],[50,50],[65,30],[65,70],[90,30],[90,70]],
+  "10": [[10,30],[10,70],[30,30],[30,70],[50,30],[50,70],[70,30],[70,70],[90,30],[90,70]],
 };
 
 function centerHTML(card) {
@@ -949,7 +949,7 @@ function makeCardHTML(card, flipped) {
   const colorClass = card.suit.color;
   return `
     <div class="card ${flipped ? "flipped" : ""}">
-      <div class="card-face card-back"><div class="card-back-emblem">F</div></div>
+      <div class="card-face card-back"></div>
       <div class="card-face card-front ${colorClass}">
         <div class="corner tl"><div class="rank">${card.label}</div><div class="suit-mini">${card.suit.sym}</div></div>
         ${centerHTML(card)}
